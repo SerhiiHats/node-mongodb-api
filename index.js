@@ -1,13 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const ProductModel = require('./models/product.model');
-const FileService = require("./fileService.js");
+const FileService = require('./fileService.js');
 const connectDB = require('./connectMongo');
-const fileUpload = require("express-fileupload");
-
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use(fileUpload({}));
 
 connectDB();

@@ -76,7 +76,7 @@ app.delete('/api/v1/products/:id', async (req, res) => {
     if (!req.params.id) {
       throw new Error("Id не указан");
     }
-    const deletedProduct = await ProductModel.findByIdAndUpdate(req.params.id);
+    const deletedProduct = await ProductModel.findByIdAndDelete(req.params.id);
     return res.status(200).json(deletedProduct);
   } catch (error) {
     return res.status(500).json(error.message);
